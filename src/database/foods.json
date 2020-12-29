@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Appricots (pack of 3)",
+        "image": "https://images.unsplash.com/photo-1500291070270-3daa480b7bd6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80", 
+        "price": "$3"
+    }, 
+    {
+        "id": 2,
+        "name": "Apples",
+        "image": "https://images.unsplash.com/photo-1477830530828-c849c4b9bf2d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80", 
+        "price": "$2"
+    },  
+    {
+        "id": 3,
+        "name": "Pomegranates (pack of 2)",
+        "image": "https://images.unsplash.com/photo-1517281451369-b547ef2a72f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1311&q=80",
+        "price": "$4" 
+    }, 
+    {
+        "id": 4,
+        "name": "Peaches (pack of 5)",
+        "image": "https://images.unsplash.com/photo-1542296663-c8002b3c8422?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2333&q=80",
+        "price": "$5" 
+    }   
+]

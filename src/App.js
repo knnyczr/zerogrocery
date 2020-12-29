@@ -1,6 +1,8 @@
 import './scss/app.scss'
+import Foods from './database/foods.json'
 
 function App() {
+  console.log(Foods)
   return (
     <div className="App">
       <header className="App-header">
