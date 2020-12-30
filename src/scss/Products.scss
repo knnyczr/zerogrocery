@@ -1,0 +1,13 @@
+main{
+    display: flex;
+    flex-direction: column;
+    .card {
+        margin: 0 auto;
+        width: 90%;
+        margin-bottom: 10px;
+        .img, .card-img-top {
+            // max-height: 200px;
+            background-image: cover;
+        }
+    }
+}

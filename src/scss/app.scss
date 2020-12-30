@@ -1,3 +1,18 @@
-html{
-    background-color: #F1E3D3;
+@import "~bootstrap/scss/bootstrap";
+
+// html{
+//     background-color: #F1E3D3;
+//     main{
+//         background-color: #F1E3D3;
+//     }
+//     nav{
+//         background-color: #F1E3D3;
+//     }
+// }
+footer{
+    height: 50px;
+    p{
+        text-align: center;
+        margin: 0 auto;
+    }
 }
