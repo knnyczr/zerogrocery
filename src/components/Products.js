@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCart, addToCart } from '../redux/cartSlice';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
 
 import foods from '../database/foods.json'
 
@@ -12,9 +12,7 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 export default function Products(){
     const dispatch = useDispatch()
-    const cart = useSelector(selectCart)
 
-    console.log(cart)
     return(
         <main>
             {
