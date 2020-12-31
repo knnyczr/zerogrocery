@@ -1,4 +1,7 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCart, addToCart } from '../redux/cartSlice';
+
 import foods from '../database/foods.json'
 
 import '../scss/Products.scss'
@@ -8,7 +11,10 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Products(){
-    console.log(foods)
+    const dispatch = useDispatch()
+    const cart = useSelector(selectCart)
+
+    console.log(cart)
     return(
         <main>
             {
@@ -20,7 +26,12 @@ export default function Products(){
                             <Card.Text>
                                 {fruit.price}
                             </Card.Text>
-                            <Button variant="success" size="lg" block>
+                            <Button 
+                                block
+                                variant="success" 
+                                size="lg" 
+                                onClick={(e) => dispatch(addToCart(fruit))}
+                            >
                                 <FontAwesomeIcon icon={faCartPlus} />
                             </Button>
                         </Card.Body>

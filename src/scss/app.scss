@@ -1,5 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
+@font-face {
+    font-family: 'Bebas', san-serif; 
+    src: url('./fonts/BEBAS.ttf') format('truetype');
+}
+
 // html{
 //     background-color: #F1E3D3;
 //     main{
