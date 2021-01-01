@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCart, removeFromCart } from '../redux/cartSlice';
+import { selectCart } from '../redux/cartSlice';
 
 export default function Cart() {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const cart = useSelector(selectCart)
-    console.log(cart)
+
+    const [items, setItems] = useState({})
+
+    useEffect(() => {
+        setItems(cart)
+    }, [cart])
+
+    const displayItems = (cartItems) => {
+        if(Object.keys(cartItems).length !== 0){
+            const all = [] 
+            for(const ids in cartItems){
+                all.push(<h1>{ids}: {cartItems[ids]}</h1>)
+            }
+            return all;
+        }  
+    } 
+
+    // console.log(items)
 
     return (
         <>
-            {/* {
-                cart.length > 0  &&
-                cart.map((fruit) => (
-
-                ))
-            } */}
+            {
+                displayItems(items)
+            }
         </>
     );
 }
