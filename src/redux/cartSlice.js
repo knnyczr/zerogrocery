@@ -13,12 +13,15 @@ export const cartSlice = createSlice({
         }, 
         removeFromCart: (state, action) => {
             delete state.cart[action.payload]
+        }, 
+        addByAmount: (state, action) => {
+            state.cart[action.payload.id] = action.payload.amount
         }
     }
 })
 
 // exporting the reducers
-export const { addToCart, removeFromCart } = cartSlice.actions; 
+export const { addToCart, removeFromCart, addByAmount } = cartSlice.actions; 
 
 // this will allow us to view the cart's value
 export const selectCart = state => state.cart.cart;

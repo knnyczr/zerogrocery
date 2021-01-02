@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../redux/cartSlice';
+import { removeFromCart, addByAmount } from '../redux/cartSlice';
 import foods from '../database/foods.json';
 
 import { Row, Col, Button, DropdownButton, Dropdown, InputGroup, FormControl } from 'react-bootstrap'
@@ -22,47 +22,32 @@ export default function Item({ids, cartItems}) {
                 foodObj.map((fruit) => (
                     <>
                         <Col>
-                            {/* <DropdownButton
-                                // as={InputGroup.Prepend}
-                                variant="outline-secondary"
-                                title={`${cartItems[ids]}`}
-                                // id={`input-group-dropdown-${ids}`}
-                                >
-                                <Dropdown.Item href="#">1</Dropdown.Item>
-                                <Dropdown.Item href="#">2</Dropdown.Item>
-                                <Dropdown.Item href="#">3</Dropdown.Item>
-                                <Dropdown.Item href="#">4</Dropdown.Item>
-                            </DropdownButton> */}
-                            
                             <InputGroup className="mb-3">
                                 <DropdownButton
-                                as={InputGroup.Prepend}
-                                variant="outline-secondary"
-                                title={`${cartItems[ids]}`}
-                                id={`input-group-dropdown-${ids}`}
+                                    as={InputGroup.Prepend}
+                                    variant="outline-secondary"
+                                    title={`${cartItems[ids]}`}
+                                    id={`input-group-dropdown-${ids}`}
                                 >
-                                <Dropdown.Item href="#">1</Dropdown.Item>
-                                <Dropdown.Item href="#">2</Dropdown.Item>
-                                <Dropdown.Item href="#">3</Dropdown.Item>
-                                <Dropdown.Divider />
-                                <Dropdown.Item href="#">4</Dropdown.Item>
+                                    {
+                                        [1, 2, 3, 4].map((num) => (
+                                            <Dropdown.Item 
+                                                onClick={() => dispatch(addByAmount({id: ids, amount: num}))}
+                                            >
+                                                {num}
+                                            </Dropdown.Item>
+
+                                        ))
+                                    }
                                 </DropdownButton>
+
                                 <FormControl disabled aria-describedby={`basic-addon${ids}`}  placeholder={fruit.name} />
+
+                                <InputGroup.Append>
+                                    <Button onClick={() => dispatch(removeFromCart(ids))} variant="danger">remove</Button>
+                                </InputGroup.Append>
                             </InputGroup>
-
-
                         </Col>
-                        {/* <Col xs={5} key={`${fruit.id} - ${fruit.name}`}>
-                            {fruit.name}
-                        </Col>
-                        <Col>
-                            <Button
-                                variant="danger"
-                                onClick={(e) => dispatch(removeFromCart(fruit.id))}
-                             >
-                             del
-                             </Button>
-                        </Col> */}
                     </>
                 ))
             }
