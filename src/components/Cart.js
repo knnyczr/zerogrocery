@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import Item from './Item'
+
+import { useSelector } from 'react-redux';
 import { selectCart } from '../redux/cartSlice';
+
+import { Container } from 'react-bootstrap'
 
 export default function Cart() {
     // const dispatch = useDispatch()
@@ -14,21 +18,19 @@ export default function Cart() {
 
     const displayItems = (cartItems) => {
         if(Object.keys(cartItems).length !== 0){
-            const all = [] 
+            const allItems = [] 
             for(const ids in cartItems){
-                all.push(<h1>{ids}: {cartItems[ids]}</h1>)
+                allItems.push(<Item key={ids} ids={ids} cartItems={cartItems} />)
             }
-            return all;
-        }  
+            return allItems;
+        }  else {
+            return "Nothing in your Cart 😅"
+        }
     } 
 
-    // console.log(items)
-
     return (
-        <>
-            {
-                displayItems(items)
-            }
-        </>
+        <Container>
+            { displayItems(items) }
+        </Container>
     );
 }
