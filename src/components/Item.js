@@ -9,24 +9,23 @@ export default function Item({ids, cartItems}) {
     const [foodObj, setFoodObj] = useState([])
 
     useEffect(() => {
-        setFoodObj(foods.filter((fruit) => fruit.id == ids))
-        
-    }, [cartItems])
+        setFoodObj(foods.filter((fruit) => fruit.id == ids))    
+    }, [ids])
 
-    console.log(ids)
+    // console.log(ids)
 
   return (
     <Row key={ids}>
-        <Col>
+        <>
             {
                 foodObj.map((fruit) => (
-                    <>
+                    <Col key={`${fruit.id} - ${fruit.name}`}>
                         <h5>{fruit.name}</h5>
                         <p>{`Count: ${cartItems[ids]}`}</p>
-                    </>
+                    </Col>
                 ))
             }
-        </Col>
+        </>
         {/* <Col>{ids}: {cartItems[ids]}</Col> */}
     </Row>
   );
